@@ -373,11 +373,11 @@
             if (allowMultiple) {
               _date  = map(value, 'formattedDate');
               ngModel.$setViewValue(_date);
-              $scope.onChange({date: _date});
+              scope.onChange({date: _date});
             } else {
               _date = value[0] && value[0].formattedDate;
               ngModel.$setViewValue(_date);
-              $scope.onChange({date: _date});
+              scope.onChange({date: _date});
             }
 
             if (!options.skipRenderInput) element.val(ngModel.$viewValue);

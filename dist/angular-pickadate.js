@@ -19,8 +19,8 @@
 
     .provider('pickadateI18n', function() {
       var defaults = {
-        'prev': 'prev',
-        'next': 'next'
+        'prev': 'Prev',
+        'next': 'Next'
       };
 
       this.translations = {};

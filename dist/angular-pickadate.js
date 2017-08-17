@@ -250,7 +250,8 @@
           minDate: '=',
           maxDate: '=',
           disabledDates: '&',
-          weekStartsOn: '='
+          weekStartsOn: '=',
+          onChange: '&'
         },
 
         link: function(scope, element, attrs, ngModel)  {
@@ -368,10 +369,15 @@
           function setViewValue(value, options) {
             options = options || {};
 
+            var _date;
             if (allowMultiple) {
-              ngModel.$setViewValue(map(value, 'formattedDate'));
+              _date  = map(value, 'formattedDate');
+              ngModel.$setViewValue(_date);
+              $scope.onChange({date: _date});
             } else {
-              ngModel.$setViewValue(value[0] && value[0].formattedDate);
+              _date = value[0] && value[0].formattedDate;
+              ngModel.$setViewValue(_date);
+              $scope.onChange({date: _date});
             }
 
             if (!options.skipRenderInput) element.val(ngModel.$viewValue);
